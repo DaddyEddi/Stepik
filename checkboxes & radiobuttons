@@ -17,7 +17,7 @@ radioButton = browser.find_element_by_id('robotsRule')
 radioButton.click()
 
 def calc(x):
-  return str(math.log(abs(12*math.sin(int(x)))))
+  return str(math.log(abs(12 * math.sin(int(x)))))
 
 x_element = browser.find_element(By.ID, 'input_value') # Считать значение для переменной x
 x = x_element.text
