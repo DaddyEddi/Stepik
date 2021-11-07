@@ -30,7 +30,8 @@ checkButton.click()
 # Выбрать radiobutton "Robots rule!"
 radioButton = browser.find_element_by_id('robotsRule')
 radioButton.click()
-
+# Просто небольшая задержка для щекотания нервов :)
+time.sleep(8)
 # Нажать на кнопку "Submit"
 submit = browser.find_element(By.CLASS_NAME, 'btn')
 submit.click()
