@@ -1,0 +1,24 @@
+
+import os
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+# Открыть страницу http://suninjuly.github.io/file_input.html
+browser = webdriver.Chrome()
+link = 'http://suninjuly.github.io/file_input.html'
+browser.get(link)
+
+# Заполнить текстовые поля: имя, фамилия, email
+first_name = browser.find_element_by_xpath("//input[@name='firstname']").send_keys('Ed')
+last_name = browser.find_element_by_xpath("//input[@name='lastname']").send_keys('Gere')
+email = browser.find_element_by_xpath("//input[@name='email']").send_keys('stepik@admin.ru')
+
+# Загрузить файл. Файл должен иметь расширение .txt и может быть пустым
+current_dir = os.path.abspath(os.path.dirname(__file__)) # получаем путь к директории текущего исполняемого файла
+file_path = os.path.join(current_dir, 'file.txt') # добавляем к этому пути имя файла
+
+# находим кнопку "Add" с помощью селектора, а затем применяем метод send_keys(file_path).
+btn_add = browser.find_element_by_xpath("//input[@type='file']").send_keys(file_path)
+
+# Нажать кнопку "Submit"
+btn = browser.find_element(By.CLASS_NAME, 'btn').click()
